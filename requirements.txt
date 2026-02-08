@@ -4,6 +4,7 @@ pandas
 numpy
 plotly
 scikit-learn
-tensorflow  # Nếu bạn muốn dùng LSTM
-statsmodels # Cho mô hình ARIMA/Dự báo thống kê
+tensorflow
 ta
+beautifulsoup4
+lxml
