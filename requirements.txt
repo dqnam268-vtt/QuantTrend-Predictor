@@ -1,4 +1,4 @@
-# Cơ bản & Giao diện
+# Giao diện & Dữ liệu
 streamlit
 vnstock
 pandas
@@ -7,13 +7,14 @@ plotly
 beautifulsoup4
 lxml
 requests
+ipython
 
-# Học máy & Trí tuệ nhân tạo
+# Trí tuệ nhân tạo & Máy học
 scikit-learn
 tensorflow
 ta
 
-# Toán học & Thống kê nâng cao
-scipy           # Xử lý tín hiệu, biến đổi Fourier
-statsmodels     # Phân tích chuỗi thời gian (ARIMA, Decomposition)
-prophet         # Mô hình dự báo của Meta (Facebook)
+# Toán học nâng cao
+scipy
+statsmodels
+prophet
