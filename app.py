@@ -2,6 +2,7 @@ import streamlit as st
 import plotly.graph_objects as go
 from data_engine import DataEngine
 from ml_engine import MLEngine
+from math_engine import MathEngine
 
 st.set_page_config(page_title="AI QuantTrend Predictor", layout="wide")
 
@@ -46,3 +47,26 @@ if data is not None:
         st.write("- **Khuyến nghị:** Dựa trên phân tích dòng tiền và MA, hệ thống đề xuất tỷ trọng an toàn là 30-50% tiền mặt.")
 else:
     st.error("Không thể kết nối dữ liệu. Vui lòng kiểm tra lại mã cổ phiếu.")
+# ... (Phần lấy dữ liệu cũ)
+
+tab1, tab2, tab3 = st.tabs(["Biểu đồ AI", "Xác suất Monte Carlo", "Vùng giá Fibonacci"])
+
+with tab1:
+    # Biểu đồ nến cũ đã làm ở bước trước
+    st.plotly_chart(fig, use_container_width=True)
+
+with tab2:
+    st.subheader("🎲 Dự báo xác suất (Monte Carlo - 100 kịch bản)")
+    sims = MathEngine.monte_carlo_simulation(data)
+    fig_mc = go.Figure()
+    for i in range(len(sims)):
+        fig_mc.add_trace(go.Scatter(y=sims[i], mode='lines', line=dict(width=1), showlegend=False))
+    st.plotly_chart(fig_mc, use_container_width=True)
+    st.info("Biểu đồ này cho thấy các hướng đi có thể của giá. Nếu các đường tập trung hướng lên, xác suất tăng giá cao.")
+
+with tab3:
+    st.subheader("📐 Các mức hỗ trợ Fibonacci")
+    fib = MathEngine.calculate_fibonacci_levels(data)
+    for level, value in fib.items():
+        st.write(f"**{level}:** {value:,.0f}đ")
+    st.progress(0.618) # Hiển thị thanh tỷ lệ vàng
