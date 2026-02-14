@@ -1,5 +1,5 @@
+vnstock==2.4.0
 streamlit
-vnstock
 pandas
 numpy
 plotly
@@ -7,6 +7,5 @@ scikit-learn
 tensorflow
 ta
 beautifulsoup4
-lxml
 ipython
 scipy
