@@ -1,0 +1,12 @@
+streamlit
+vnstock
+pandas
+numpy
+plotly
+scikit-learn
+tensorflow
+ta
+beautifulsoup4
+lxml
+ipython
+scipy
