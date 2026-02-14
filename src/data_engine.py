@@ -1,5 +1,5 @@
 import pandas as pd
-from vnstock import VnstockV2 # Sửa lại để dùng bản V2 ổn định
+from vnstock import VnstockV2 # Chuyển sang dùng bản V2 ổn định cho code cũ
 from datetime import datetime, timedelta
 import sys
 
