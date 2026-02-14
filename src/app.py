@@ -4,6 +4,15 @@ import pandas as pd
 import sys
 import os
 
+# --- DÒNG QUAN TRỌNG NHẤT: GIÚP APP NHẬN DIỆN ENGINE TRONG THƯ MỤC SRC ---
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(current_dir)
+
+# Bây giờ thầy mới gọi các engine như cũ, hệ thống sẽ không còn báo lỗi nữa
+from data_engine import DataEngine
+from ml_engine import MLEngine
+from math_engine import MathEngine
+
 # --- SỬA LỖI ĐƯỜNG DẪN (PATH FIX) ---
 # Dòng này giúp Streamlit nhận diện được các file engine nằm cùng thư mục src
 sys.path.append(os.path.dirname(__file__))
