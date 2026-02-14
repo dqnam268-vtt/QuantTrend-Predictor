@@ -1,10 +1,27 @@
-import streamlit as st
-import plotly.graph_objects as go
-import pandas as pd
+import subprocess
 import sys
 import os
 
-# --- DÒNG QUAN TRỌNG NHẤT: GIÚP APP NHẬN DIỆN ENGINE TRONG THƯ MỤC SRC ---
+# --- CÀI ĐẶT CƯỠNG BỨC (FORCE INSTALL) ---
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+try:
+    from vnstock import stock_historical_data
+except ImportError:
+    install('vnstock')
+    install('beautifulsoup4')
+    install('ipython')
+
+# --- ĐIỀU CHỈNH ĐƯỜNG DẪN HỆ THỐNG ---
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Bây giờ mới gọi các Engine của thầy
+from data_engine import DataEngine
+from ml_engine import MLEngine
+from math_engine import MathEngine
+
+import streamlit as st
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
 
