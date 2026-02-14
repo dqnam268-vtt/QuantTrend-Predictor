@@ -1,8 +1,9 @@
 import streamlit as st
 import plotly.graph_objects as go
-from data_engine import DataEngine
+from src.data_engine import DataEngine
 from ml_engine import MLEngine
 from math_engine import MathEngine
+
 
 st.set_page_config(page_title="AI QuantTrend Predictor", layout="wide")
 
